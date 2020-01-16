@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbDashboard_SPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dbDashboard_SP.dbo.tblEmployee_Info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblEmployee_Info">
+          <Key>
+            <PropertyRef Name="Employee_ID" />
+            <PropertyRef Name="Employee_FirstName" />
+            <PropertyRef Name="Employee_LastName" />
+            <PropertyRef Name="Department_ID" />
+          </Key>
+          <Property Name="Employee_ID" Type="int" Nullable="false" />
+          <Property Name="Employee_FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Employee_LastName" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Department_ID" Type="int" Nullable="false" />
+          <Property Name="SubDepartment_ID" Type="int" />
+          <Property Name="Employee_Function" Type="varchar" MaxLength="50" />
+          <Property Name="Employee_doe" Type="varchar" MaxLength="50" />
+          <Property Name="Employee_dob" Type="varchar" MaxLength="50" />
+          <Property Name="Employee_phone" Type="varchar" MaxLength="50" />
+          <Property Name="Employee_email" Type="varchar" MaxLength="50" />
+          <Property Name="Employee_hasERP" Type="varchar" MaxLength="50" />
+          <Property Name="Employee_ERPcode" Type="int" />
+          <Property Name="Employee_AppRole" Type="nvarchar" MaxLength="6" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'dbDashboard_SP.dbo.tblEmployeeExtraRights' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblEmployeeExtraRights">
+          <Property Name="Department_ID" Type="int" />
+          <Property Name="Employee_ID" Type="int" />
+          <Property Name="Employee_PIN" Type="int" />
+          <Property Name="Employee_Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <EntityType Name="tblErrors">
+          <Key>
+            <PropertyRef Name="Error_PK" />
+          </Key>
+          <Property Name="Employee_ID" Type="int" Nullable="false" />
+          <Property Name="Error_ID" Type="int" Nullable="false" />
+          <Property Name="Count_NrErrors" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Week_Nr" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="Error_Date" Type="date" />
+          <Property Name="Error_AddedBy" Type="int" />
+          <Property Name="Error_PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblErrors_Def">
+          <Key>
+            <PropertyRef Name="Error_ID" />
+          </Key>
+          <Property Name="Error_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Error_Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Error_DepartmentType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Error_SubdepartmentID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'dbDashboard_SP.dbo.tblUploadData_Purchase' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblUploadData_Purchase">
+          <Property Name="Employee_ID" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Start_Time" Type="nvarchar" MaxLength="50" />
+          <Property Name="End_Time" Type="nvarchar" MaxLength="50" />
+          <Property Name="Total_Time" Type="int" />
+          <Property Name="Activity" Type="nvarchar" MaxLength="255" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="255" />
+          <Property Name="Client" Type="nvarchar" MaxLength="255" />
+          <Property Name="Final_Observations" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dbDashboard_SP.dbo.tblUploadDataVK_Purchase' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblUploadDataVK_Purchase">
+          <Key>
+            <PropertyRef Name="VK_ID" />
+          </Key>
+          <Property Name="VK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee_ID" Type="int" />
+          <Property Name="Upload_Date" Type="datetime" />
+          <Property Name="Count_Total" Type="int" />
+          <Property Name="Count_EK" Type="int" />
+          <Property Name="Count_FA" Type="int" />
+          <Property Name="Count_Green" Type="int" />
+          <Property Name="Count_Red" Type="int" />
+          <Property Name="Count_Yellow" Type="int" />
+          <Property Name="Count_Qty_Calculation" Type="int" />
+          <Property Name="Count_Lot_Production" Type="int" />
+          <Property Name="Handelspartner_Nr" Type="nvarchar" MaxLength="50" />
+          <Property Name="Handelspartner_Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Angebots_Nr" Type="nvarchar" MaxLength="50" />
+          <Property Name="Emp_Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="FA_Nr" Type="nvarchar" MaxLength="50" />
+          <Property Name="FA_Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="Sent_Emails" Type="int" />
+          <Property Name="Excel_Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Request_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Excel_OldPrice" Type="nvarchar" MaxLength="50" />
+          <Property Name="Order_Qty" Type="int" />
+          <Property Name="Old_PriceEUR" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="New_PriceEUR" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Margin" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalGain" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="dbDashboard_SPModelStoreContainer">
+          <EntitySet Name="tblErrors" EntityType="Self.tblErrors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblErrors_Def" EntityType="Self.tblErrors_Def" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEmployee_Info" EntityType="Self.tblEmployee_Info" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblEmployee_Info].[Employee_ID] AS [Employee_ID], 
+    [tblEmployee_Info].[Employee_FirstName] AS [Employee_FirstName], 
+    [tblEmployee_Info].[Employee_LastName] AS [Employee_LastName], 
+    [tblEmployee_Info].[Department_ID] AS [Department_ID], 
+    [tblEmployee_Info].[SubDepartment_ID] AS [SubDepartment_ID], 
+    [tblEmployee_Info].[Employee_Function] AS [Employee_Function], 
+    [tblEmployee_Info].[Employee_doe] AS [Employee_doe], 
+    [tblEmployee_Info].[Employee_dob] AS [Employee_dob], 
+    [tblEmployee_Info].[Employee_phone] AS [Employee_phone], 
+    [tblEmployee_Info].[Employee_email] AS [Employee_email], 
+    [tblEmployee_Info].[Employee_hasERP] AS [Employee_hasERP], 
+    [tblEmployee_Info].[Employee_ERPcode] AS [Employee_ERPcode], 
+    [tblEmployee_Info].[Employee_AppRole] AS [Employee_AppRole]
+    FROM [dbo].[tblEmployee_Info] AS [tblEmployee_Info]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblUploadDataVK_Purchase" EntityType="Self.tblUploadDataVK_Purchase" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblUploadDataVK_Purchase].[VK_ID] AS [VK_ID], 
+    [tblUploadDataVK_Purchase].[Employee_ID] AS [Employee_ID], 
+    [tblUploadDataVK_Purchase].[Upload_Date] AS [Upload_Date], 
+    [tblUploadDataVK_Purchase].[Count_Total] AS [Count_Total], 
+    [tblUploadDataVK_Purchase].[Count_EK] AS [Count_EK], 
+    [tblUploadDataVK_Purchase].[Count_FA] AS [Count_FA], 
+    [tblUploadDataVK_Purchase].[Count_Green] AS [Count_Green], 
+    [tblUploadDataVK_Purchase].[Count_Red] AS [Count_Red], 
+    [tblUploadDataVK_Purchase].[Count_Yellow] AS [Count_Yellow], 
+    [tblUploadDataVK_Purchase].[Count_Qty_Calculation] AS [Count_Qty_Calculation], 
+    [tblUploadDataVK_Purchase].[Count_Lot_Production] AS [Count_Lot_Production], 
+    [tblUploadDataVK_Purchase].[Handelspartner_Nr] AS [Handelspartner_Nr], 
+    [tblUploadDataVK_Purchase].[Handelspartner_Name] AS [Handelspartner_Name], 
+    [tblUploadDataVK_Purchase].[Angebots_Nr] AS [Angebots_Nr], 
+    [tblUploadDataVK_Purchase].[Emp_Name] AS [Emp_Name], 
+    [tblUploadDataVK_Purchase].[FA_Nr] AS [FA_Nr], 
+    [tblUploadDataVK_Purchase].[FA_Description] AS [FA_Description], 
+    [tblUploadDataVK_Purchase].[Sent_Emails] AS [Sent_Emails], 
+    [tblUploadDataVK_Purchase].[Excel_Name] AS [Excel_Name], 
+    [tblUploadDataVK_Purchase].[Request_Type] AS [Request_Type], 
+    [tblUploadDataVK_Purchase].[Excel_OldPrice] AS [Excel_OldPrice], 
+    [tblUploadDataVK_Purchase].[Order_Qty] AS [Order_Qty], 
+    [tblUploadDataVK_Purchase].[Old_PriceEUR] AS [Old_PriceEUR], 
+    [tblUploadDataVK_Purchase].[New_PriceEUR] AS [New_PriceEUR], 
+    [tblUploadDataVK_Purchase].[Margin] AS [Margin], 
+    [tblUploadDataVK_Purchase].[TotalGain] AS [TotalGain], 
+    [tblUploadDataVK_Purchase].[Comments] AS [Comments]
+    FROM [dbo].[tblUploadDataVK_Purchase] AS [tblUploadDataVK_Purchase]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbDashboard_SPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblError">
+          <Key>
+            <PropertyRef Name="Error_PK" />
+          </Key>
+          <Property Name="Employee_ID" Type="Int32" Nullable="false" />
+          <Property Name="Error_ID" Type="Int32" Nullable="false" />
+          <Property Name="Count_NrErrors" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Week_Nr" Type="Int32" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Error_Date" Type="DateTime" Precision="0" />
+          <Property Name="Error_AddedBy" Type="Int32" />
+          <Property Name="Error_PK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tblErrors_Def">
+          <Key>
+            <PropertyRef Name="Error_ID" />
+          </Key>
+          <Property Name="Error_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Error_Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Error_DepartmentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Error_SubdepartmentID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblEmployee_Info">
+          <Key>
+            <PropertyRef Name="Employee_ID" />
+            <PropertyRef Name="Employee_FirstName" />
+            <PropertyRef Name="Employee_LastName" />
+            <PropertyRef Name="Department_ID" />
+          </Key>
+          <Property Name="Employee_ID" Type="Int32" Nullable="false" />
+          <Property Name="Employee_FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Employee_LastName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Department_ID" Type="Int32" Nullable="false" />
+          <Property Name="SubDepartment_ID" Type="Int32" />
+          <Property Name="Employee_Function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Employee_doe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Employee_dob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Employee_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Employee_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Employee_hasERP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Employee_ERPcode" Type="Int32" />
+          <Property Name="Employee_AppRole" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblUploadDataVK_Purchase">
+          <Key>
+            <PropertyRef Name="VK_ID" />
+          </Key>
+          <Property Name="VK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee_ID" Type="Int32" />
+          <Property Name="Upload_Date" Type="DateTime" Precision="3" />
+          <Property Name="Count_Total" Type="Int32" />
+          <Property Name="Count_EK" Type="Int32" />
+          <Property Name="Count_FA" Type="Int32" />
+          <Property Name="Count_Green" Type="Int32" />
+          <Property Name="Count_Red" Type="Int32" />
+          <Property Name="Count_Yellow" Type="Int32" />
+          <Property Name="Count_Qty_Calculation" Type="Int32" />
+          <Property Name="Count_Lot_Production" Type="Int32" />
+          <Property Name="Handelspartner_Nr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Handelspartner_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Angebots_Nr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Emp_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FA_Nr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FA_Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Sent_Emails" Type="Int32" />
+          <Property Name="Excel_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Excel_OldPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Order_Qty" Type="Int32" />
+          <Property Name="Old_PriceEUR" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="New_PriceEUR" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Margin" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalGain" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="dbDashboard_SPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblErrors" EntityType="Self.tblError" />
+          <EntitySet Name="tblErrors_Def" EntityType="Self.tblErrors_Def" />
+          <EntitySet Name="tblEmployee_Info" EntityType="Self.tblEmployee_Info" />
+          <EntitySet Name="tblUploadDataVK_Purchase" EntityType="Self.tblUploadDataVK_Purchase" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbDashboard_SPModelStoreContainer" CdmEntityContainer="dbDashboard_SPEntities">
+          <EntitySetMapping Name="tblErrors">
+            <EntityTypeMapping TypeName="dbDashboard_SPModel.tblError">
+              <MappingFragment StoreEntitySet="tblErrors">
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="Error_ID" ColumnName="Error_ID" />
+                <ScalarProperty Name="Count_NrErrors" ColumnName="Count_NrErrors" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Week_Nr" ColumnName="Week_Nr" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Error_Date" ColumnName="Error_Date" />
+                <ScalarProperty Name="Error_AddedBy" ColumnName="Error_AddedBy" />
+                <ScalarProperty Name="Error_PK" ColumnName="Error_PK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblErrors_Def">
+            <EntityTypeMapping TypeName="dbDashboard_SPModel.tblErrors_Def">
+              <MappingFragment StoreEntitySet="tblErrors_Def">
+                <ScalarProperty Name="Error_ID" ColumnName="Error_ID" />
+                <ScalarProperty Name="Error_Text" ColumnName="Error_Text" />
+                <ScalarProperty Name="Error_DepartmentType" ColumnName="Error_DepartmentType" />
+                <ScalarProperty Name="Error_SubdepartmentID" ColumnName="Error_SubdepartmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEmployee_Info">
+            <EntityTypeMapping TypeName="dbDashboard_SPModel.tblEmployee_Info">
+              <MappingFragment StoreEntitySet="tblEmployee_Info">
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="Employee_FirstName" ColumnName="Employee_FirstName" />
+                <ScalarProperty Name="Employee_LastName" ColumnName="Employee_LastName" />
+                <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
+                <ScalarProperty Name="SubDepartment_ID" ColumnName="SubDepartment_ID" />
+                <ScalarProperty Name="Employee_Function" ColumnName="Employee_Function" />
+                <ScalarProperty Name="Employee_doe" ColumnName="Employee_doe" />
+                <ScalarProperty Name="Employee_dob" ColumnName="Employee_dob" />
+                <ScalarProperty Name="Employee_phone" ColumnName="Employee_phone" />
+                <ScalarProperty Name="Employee_email" ColumnName="Employee_email" />
+                <ScalarProperty Name="Employee_hasERP" ColumnName="Employee_hasERP" />
+                <ScalarProperty Name="Employee_ERPcode" ColumnName="Employee_ERPcode" />
+                <ScalarProperty Name="Employee_AppRole" ColumnName="Employee_AppRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUploadDataVK_Purchase">
+            <EntityTypeMapping TypeName="dbDashboard_SPModel.tblUploadDataVK_Purchase">
+              <MappingFragment StoreEntitySet="tblUploadDataVK_Purchase">
+                <ScalarProperty Name="VK_ID" ColumnName="VK_ID" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="Upload_Date" ColumnName="Upload_Date" />
+                <ScalarProperty Name="Count_Total" ColumnName="Count_Total" />
+                <ScalarProperty Name="Count_EK" ColumnName="Count_EK" />
+                <ScalarProperty Name="Count_FA" ColumnName="Count_FA" />
+                <ScalarProperty Name="Count_Green" ColumnName="Count_Green" />
+                <ScalarProperty Name="Count_Red" ColumnName="Count_Red" />
+                <ScalarProperty Name="Count_Yellow" ColumnName="Count_Yellow" />
+                <ScalarProperty Name="Count_Qty_Calculation" ColumnName="Count_Qty_Calculation" />
+                <ScalarProperty Name="Count_Lot_Production" ColumnName="Count_Lot_Production" />
+                <ScalarProperty Name="Handelspartner_Nr" ColumnName="Handelspartner_Nr" />
+                <ScalarProperty Name="Handelspartner_Name" ColumnName="Handelspartner_Name" />
+                <ScalarProperty Name="Angebots_Nr" ColumnName="Angebots_Nr" />
+                <ScalarProperty Name="Emp_Name" ColumnName="Emp_Name" />
+                <ScalarProperty Name="FA_Nr" ColumnName="FA_Nr" />
+                <ScalarProperty Name="FA_Description" ColumnName="FA_Description" />
+                <ScalarProperty Name="Sent_Emails" ColumnName="Sent_Emails" />
+                <ScalarProperty Name="Excel_Name" ColumnName="Excel_Name" />
+                <ScalarProperty Name="Request_Type" ColumnName="Request_Type" />
+                <ScalarProperty Name="Excel_OldPrice" ColumnName="Excel_OldPrice" />
+                <ScalarProperty Name="Order_Qty" ColumnName="Order_Qty" />
+                <ScalarProperty Name="Old_PriceEUR" ColumnName="Old_PriceEUR" />
+                <ScalarProperty Name="New_PriceEUR" ColumnName="New_PriceEUR" />
+                <ScalarProperty Name="Margin" ColumnName="Margin" />
+                <ScalarProperty Name="TotalGain" ColumnName="TotalGain" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

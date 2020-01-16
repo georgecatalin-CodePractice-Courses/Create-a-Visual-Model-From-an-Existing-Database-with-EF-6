@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbItemDataSupportModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'dbItemDataSupport.dbo.tblClassLetter' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblClassLetter">
+          <Property Name="pkCOD_COMP" Type="float" />
+          <Property Name="COMP_LETTER" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'dbItemDataSupport.dbo.tblComponents' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblComponents">
+          <Property Name="pkCOD_GRUPA" Type="nvarchar" MaxLength="255" />
+          <Property Name="pkCOD_COMP" Type="float" />
+          <Property Name="DEN_COMP" Type="nvarchar" MaxLength="255" />
+          <Property Name="COMP_IMG_NAME" Type="nvarchar" MaxLength="255" />
+          <Property Name="COMP_LETTER" Type="nvarchar" MaxLength="255" />
+          <Property Name="COD_PROPR" Type="float" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'dbItemDataSupport.dbo.tblCompProperties' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblCompProperties">
+          <Property Name="COD_PROPR" Type="float" />
+          <Property Name="PARAM_NAME" Type="nvarchar" MaxLength="255" />
+          <Property Name="PARAM_MEASURE_UNIT" Type="nvarchar" MaxLength="255" />
+          <Property Name="PARAM_CATEG" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'dbItemDataSupport.dbo.tblCompPropertiesNew' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblCompPropertiesNew">
+          <Property Name="COD_PROPR" Type="int" />
+          <Property Name="PARAM_NAME" Type="nvarchar" MaxLength="255" />
+          <Property Name="MEASURE_UNIT_ID" Type="int" />
+          <Property Name="PARAM_CATEG" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'dbItemDataSupport.dbo.tblCompTooltip' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblCompTooltip">
+          <Property Name="COD_PROPR" Type="float" />
+          <Property Name="COMP_DESCR" Type="nvarchar(max)" />
+          <Property Name="PREFIX" Type="nvarchar" MaxLength="255" />
+          <Property Name="VALUE_CODE" Type="nvarchar(max)" />
+          <Property Name="TOLERANCE" Type="nvarchar" MaxLength="255" />
+          <Property Name="ORIENTATION" Type="nvarchar" MaxLength="255" />
+          <Property Name="POLARITY" Type="nvarchar(max)" />
+          <Property Name="COLOR" Type="nvarchar(max)" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'dbItemDataSupport.dbo.tblCreateWiki' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblCreateWiki">
+          <Property Name="Item_Code" Type="nvarchar" MaxLength="7" />
+          <Property Name="Manufacturer" Type="nvarchar" MaxLength="250" />
+          <Property Name="Page_Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Create_Date" Type="datetime" />
+          <Property Name="User_Name" Type="nvarchar" MaxLength="250" />
+        </EntityType>-->
+        <EntityType Name="tblDepartament">
+          <Key>
+            <PropertyRef Name="pkCOD_GRUPA" />
+          </Key>
+          <Property Name="pkCOD_GRUPA" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DEN_GRUPA" Type="nchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'dbItemDataSupport.dbo.tblFAQ' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblFAQ">
+          <Property Name="pkCOD_COMP" Type="float" />
+          <Property Name="Question" Type="nvarchar" MaxLength="500" />
+          <Property Name="Answer" Type="nvarchar" MaxLength="500" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dbItemDataSupport.dbo.tblInforArtCode' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblInforArtCode">
+          <Key>
+            <PropertyRef Name="art_code" />
+          </Key>
+          <Property Name="art_code" Type="numeric" Precision="7" Scale="0" Nullable="false" />
+          <Property Name="art_comment" Type="nvarchar" MaxLength="50" />
+          <Property Name="art_user" Type="nvarchar" MaxLength="50" />
+          <Property Name="art_datetime" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'dbItemDataSupport.dbo.tblItemGroup' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblItemGroup">
+          <Property Name="COD_PROPR" Type="float" />
+          <Property Name="COD_ITEM_GROUP" Type="float" />
+          <Property Name="DESCR_ITEM_GROUP" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'dbItemDataSupport.dbo.tblMeasureUnits_Multiples_Match' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblMeasureUnits_Multiples_Match">
+          <Property Name="MEASURE_UNIT_ID" Type="int" />
+          <Property Name="MEASURE_UNIT_NAME" Type="nvarchar" MaxLength="255" />
+          <Property Name="MULTIPLES_ID" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'dbItemDataSupport.dbo.tblMultiples_Info' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblMultiples_Info">
+          <Property Name="MULTIPLES_ID" Type="int" />
+          <Property Name="MULTIPLES_NAME" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <EntityContainer Name="dbItemDataSupportModelStoreContainer">
+          <EntitySet Name="tblDepartament" EntityType="Self.tblDepartament" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblInforArtCode" EntityType="Self.tblInforArtCode" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblInforArtCode].[art_code] AS [art_code], 
+    [tblInforArtCode].[art_comment] AS [art_comment], 
+    [tblInforArtCode].[art_user] AS [art_user], 
+    [tblInforArtCode].[art_datetime] AS [art_datetime]
+    FROM [dbo].[tblInforArtCode] AS [tblInforArtCode]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbItemDataSupportModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblDepartament">
+          <Key>
+            <PropertyRef Name="pkCOD_GRUPA" />
+          </Key>
+          <Property Name="pkCOD_GRUPA" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DEN_GRUPA" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblInforArtCode">
+          <Key>
+            <PropertyRef Name="art_code" />
+          </Key>
+          <Property Name="art_code" Type="Decimal" Precision="7" Scale="0" Nullable="false" />
+          <Property Name="art_comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="art_user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="art_datetime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="dbItemDataSupportEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblDepartaments" EntityType="Self.tblDepartament" />
+          <EntitySet Name="tblInforArtCodes" EntityType="Self.tblInforArtCode" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbItemDataSupportModelStoreContainer" CdmEntityContainer="dbItemDataSupportEntities">
+          <EntitySetMapping Name="tblDepartaments">
+            <EntityTypeMapping TypeName="dbItemDataSupportModel.tblDepartament">
+              <MappingFragment StoreEntitySet="tblDepartament">
+                <ScalarProperty Name="pkCOD_GRUPA" ColumnName="pkCOD_GRUPA" />
+                <ScalarProperty Name="DEN_GRUPA" ColumnName="DEN_GRUPA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblInforArtCodes">
+            <EntityTypeMapping TypeName="dbItemDataSupportModel.tblInforArtCode">
+              <MappingFragment StoreEntitySet="tblInforArtCode">
+                <ScalarProperty Name="art_code" ColumnName="art_code" />
+                <ScalarProperty Name="art_comment" ColumnName="art_comment" />
+                <ScalarProperty Name="art_user" ColumnName="art_user" />
+                <ScalarProperty Name="art_datetime" ColumnName="art_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
